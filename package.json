@@ -1,0 +1,41 @@
+{
+  "name": "ec2-launch-explainer",
+  "version": "1.0.0",
+  "description": "A visual explainer about how an Amazon EC2 instance launches.",
+  "repository": {},
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.543",
+    "@remotion/player": "^4.0.543",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.543"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.543",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/web": "0.0.166",
+    "eslint": "10.12.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3",
+    "vite": "^7.3.8"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "site:dev": "vite --host 0.0.0.0",
+    "site:build": "vite build",
+    "render:video": "remotion render src/index.ts EC2LaunchExplainer out/ec2-launch-explainer.mp4",
+    "build:pages": "npm run render:video && node scripts/copy-rendered-video.mjs && npm run site:build",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}
